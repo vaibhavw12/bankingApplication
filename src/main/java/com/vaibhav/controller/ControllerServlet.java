@@ -41,6 +41,11 @@ public class ControllerServlet extends HttpServlet {
 			costumer.setEmail(email);
 			costumer.setPassword(password);
 			
+			//passing costumer object to CostumerDao.save() method 
+			
+			CostumerDao dao = new CostumerDao();
+			dao.save(costumer);
+			
 			
 		}
 	}

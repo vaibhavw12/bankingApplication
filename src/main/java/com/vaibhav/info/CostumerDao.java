@@ -2,9 +2,10 @@ package com.vaibhav.info;
 
 public class CostumerDao {
 	
-	CostumerDao customer;
-	public static boolean save() {
+	
+	public boolean save(CostumerInfo c) {
 		
+		System.out.println(c.getEmail());
 		return false;
 	}
 }
