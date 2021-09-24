@@ -19,7 +19,8 @@ public class ControllerServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		out.print("welcome");
+		out.print("change");
+		out.print("<a href='login.jsp'>click here</a>");
 	}
 
 }
