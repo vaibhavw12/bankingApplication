@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="loginSuccess" method="post">
+<form action="LoginServlet" method="post">
  <h1 style="text-align:center;">Welcome !!</h1>
  
  <br><br><br>

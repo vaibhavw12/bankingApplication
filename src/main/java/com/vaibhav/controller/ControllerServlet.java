@@ -46,13 +46,14 @@ public class ControllerServlet extends HttpServlet {
 			
 			CostumerDao dao = new CostumerDao();
 			if(dao.save(costumer)) {
-				out.print("record save successfully");
+				out.print("Account created successfully");
+				out.print("<br><a href='login.jsp'>click here</a>");
 			}else {
-				out.print("<br><a href='signup.jsp'>try again</a>");
+				out.print("<br><a href='signup.jsp'>try again</a>");	
 			}
 			
 			
 		}
-	}
+	} 
 
 }

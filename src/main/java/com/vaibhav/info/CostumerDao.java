@@ -3,7 +3,10 @@ package com.vaibhav.info;
 import java.sql.*;
 
 public class CostumerDao {
-	
+//	public static void main(String [] args) {
+//		System.out.println("hello");
+//		System.out.println(CostumerDao.check("S","dsf"));
+//	}
 	
 	//creating con refrence
 	public static Connection create() {
@@ -25,7 +28,7 @@ public class CostumerDao {
 	}
 	
 	
-	public static boolean save(CostumerInfo c) {
+	public boolean save(CostumerInfo c) {
 		Connection con = CostumerDao.create();
 		int status = 0; 
 		try {
@@ -50,6 +53,24 @@ public class CostumerDao {
 			return false;
 		}
 	
+	}
+
+	public boolean check(String pan , String password) {
+		// TODO Auto-generated method stub
+		Connection con = CostumerDao.create();
+		
+		try {
+			PreparedStatement ps=con.prepareStatement("select pan,password from register1 where pan=? and password=?");
+			ps.setString(1,pan);
+			ps.setString(2,password);
+		//	System.out.println(ps.executeUpdate());
+			ResultSet rs = ps.executeQuery();
+			return rs.next();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
 	}
 }
 
