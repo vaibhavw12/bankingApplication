@@ -16,6 +16,7 @@ import com.vaibhav.info.*;
 @WebServlet("/ControllerServlet")
 public class ControllerServlet extends HttpServlet {
 	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
@@ -31,7 +32,7 @@ public class ControllerServlet extends HttpServlet {
 		
 		if(password.isEmpty() || mobile.length()!=10 || pan.isEmpty() || name.isEmpty() || email.isEmpty()) {
 			out.print("plz enter valid inforamation to set up an account");
-			out.print("<br><a href='signun.jsp'>try again</a>");
+			out.print("<br><a href='signup.jsp'>try again</a>");
 		}else {
 			//creating costumer object to save details
 			CostumerInfo costumer = new CostumerInfo();
@@ -44,7 +45,11 @@ public class ControllerServlet extends HttpServlet {
 			//passing costumer object to CostumerDao.save() method 
 			
 			CostumerDao dao = new CostumerDao();
-			dao.save(costumer);
+			if(dao.save(costumer)) {
+				out.print("record save successfully");
+			}else {
+				out.print("<br><a href='signup.jsp'>try again</a>");
+			}
 			
 			
 		}
