@@ -54,24 +54,27 @@ public class CostumerDao {
 		}
 	
 	}
-
+    public String name=null;
 	public boolean check(String pan , String password) {
 		// TODO Auto-generated method stub
 		Connection con = CostumerDao.create();
 		
 		try {
-			PreparedStatement ps=con.prepareStatement("select pan,password from register1 where pan=? and password=?");
+			PreparedStatement ps=con.prepareStatement("select name,pan,password from register1 where pan=? and password=?");
 			ps.setString(1,pan);
 			ps.setString(2,password);
 		//	System.out.println(ps.executeUpdate());
 			ResultSet rs = ps.executeQuery();
-			return rs.next();
+			boolean b = rs.next();
+			name=rs.getString(1);
+			return b;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
 	}
+
 }
 
 

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.vaibhav.info.CostumerDao;
 
@@ -27,7 +28,10 @@ public class LoginServlet extends HttpServlet {
 		
 		CostumerDao dao = new CostumerDao();
 		if(dao.check(pan,password)) {
-			out.print("login successfull");
+			//out.print("login successfull");
+			HttpSession session = request.getSession();
+			session.setAttribute("name",dao.name);
+			response.sendRedirect("loginsuccess.jsp");
 		}else {
 			out.print("try again");
 		}

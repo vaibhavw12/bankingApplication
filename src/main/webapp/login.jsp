@@ -3,6 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script>
+    history.forward();
+</script>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
