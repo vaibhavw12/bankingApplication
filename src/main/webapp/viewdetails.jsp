@@ -11,6 +11,11 @@
 <body>
 details :
 <%
+
+if((session.getAttribute("name")==null) || session.getAttribute("unique")==null){
+	response.sendRedirect("index.html");
+}
+
 ArrayList<String> list=new ArrayList<>(LoginServlet.viewDetails());
 //out.print("<br>	id            : "+list.get(0));
 out.print("<br>	name          : "+list.get(1));

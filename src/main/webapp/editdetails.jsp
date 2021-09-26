@@ -8,6 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+if((session.getAttribute("name")==null) || session.getAttribute("unique")==null){
+	response.sendRedirect("index.html");
+}
+%>
 <form action="EditInfo" method="post">
 edit your details :
 <br>

@@ -11,6 +11,11 @@
  <h3>Login Successfull</h3>
  <h4>welcome : </h4>
  <%
+
+ if((session.getAttribute("name")==null) || session.getAttribute("unique")==null){
+ 	response.sendRedirect("index.html");
+ }
+
  String name =(String) session.getAttribute("name");
  out.print(name);
  %>

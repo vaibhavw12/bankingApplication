@@ -11,6 +11,10 @@
 balance =
 <%
 
+if((session.getAttribute("name")==null) || session.getAttribute("unique")==null){
+	response.sendRedirect("index.html");
+}
+
 out.print(LoginServlet.checkBalance());
 %>
 </body>

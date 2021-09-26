@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <form action="LoginServlet" method="post">
  <h1 style="text-align:center;">Welcome !!</h1>
  
@@ -29,7 +30,10 @@
   </table>   <br>
    <input type="submit" value="login">
    
-  
+  <div style="padding-left:100px">
+ 
+  <a href="forget.jsp">forget password</a>
+  </div>
    
     </div>
     </form>

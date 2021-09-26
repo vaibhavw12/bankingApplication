@@ -9,6 +9,11 @@
 </head>
 <body>
 <%
+
+if((session.getAttribute("name")==null) || session.getAttribute("unique")==null){
+	response.sendRedirect("index.html");
+}
+
  String name =(String) session.getAttribute("name");
  String pan_num = (String) session.getAttribute("unique"); 
  %>
