@@ -88,5 +88,22 @@ public class LoginServlet extends HttpServlet {
 	//	return list;
 		return list;
 	}
+	
+	public static int editDetails(String email,String mobile,String password) {
+		Connection con = BalanceInfo.create();
+		
+		try {
+			PreparedStatement ps=con.prepareStatement("update register1 set email=?,mobile=?,password=? where pan=?");
+			ps.setString(1,email);
+			ps.setString(2,mobile);
+			ps.setString(3,password);
+			ps.setString(4,static_pan);
+			return ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+	}
 
 }

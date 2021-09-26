@@ -39,7 +39,7 @@
   		</tr>
   		<tr>
   		<th>6.</th>
-  		<th><a href="settings.jsp">settings</a></th>
+  		<th><a href="logout.jsp">Logout</a></th>
   		</tr>
   		
   </table>

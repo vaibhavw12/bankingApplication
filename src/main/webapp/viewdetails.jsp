@@ -7,8 +7,9 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-details :
+
 <body>
+details :
 <%
 ArrayList<String> list=new ArrayList<>(LoginServlet.viewDetails());
 //out.print("<br>	id            : "+list.get(0));
