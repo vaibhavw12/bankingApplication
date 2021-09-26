@@ -2,6 +2,10 @@ package com.vaibhav.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.vaibhav.info.BalanceInfo;
 import com.vaibhav.info.CostumerDao;
 
 /**
@@ -17,7 +22,7 @@ import com.vaibhav.info.CostumerDao;
  */
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
-	
+	static String static_pan;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
@@ -32,13 +37,29 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("name",dao.name);
 			session.setAttribute("unique",dao.pan_num);
-
+			static_pan=dao.pan_num;
 			response.sendRedirect("loginsuccess.jsp");
 		}else {
 			out.print("plz enter correct crenditials  ,try again");
 			out.print("  <a href='login.jsp'>click here</a>");
 		}
 		
+	}
+	public static int checkBalance() {
+		Connection con = BalanceInfo.create();
+		try {
+			PreparedStatement psDemo=con.prepareStatement("select Balance from register1 where pan=?");
+			psDemo.setString(1,static_pan);
+			ResultSet rsDemo = psDemo.executeQuery();
+			rsDemo.next();
+			int balance=(int)Integer.parseInt(rsDemo.getString(1));
+			
+			return balance;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
 	}
 
 }

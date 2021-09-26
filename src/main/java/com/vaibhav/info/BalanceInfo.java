@@ -49,6 +49,7 @@ public class BalanceInfo extends HttpServlet {
 		HttpSession session = request.getSession();
 		name =(String) session.getAttribute("name");
 		pan_num = (String) session.getAttribute("unique");
+		
 		if(withdrawAmount(withdraw)) {
 			out.print("transction successfull");
 			out.print("<br> <a href='loginsuccess.jsp'>dashboard</a>");
@@ -91,6 +92,4 @@ public class BalanceInfo extends HttpServlet {
 		return false;
 	}
 	
-	
-
 }
