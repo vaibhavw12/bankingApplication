@@ -31,6 +31,8 @@ public class LoginServlet extends HttpServlet {
 			//out.print("login successfull");
 			HttpSession session = request.getSession();
 			session.setAttribute("name",dao.name);
+			session.setAttribute("unique",dao.pan_num);
+
 			response.sendRedirect("loginsuccess.jsp");
 		}else {
 			out.print("try again");

@@ -9,7 +9,7 @@
 <body>
  <div style="padding-left:80px">
  <h3>Login Successfull</h3>
- welcome : 
+ <h4>welcome : </h4>
  <%
  String name =(String) session.getAttribute("name");
  out.print(name);
@@ -19,7 +19,7 @@
    <table style="color:green">
   		<tr>
   		<th>1.</th>
-  		<th><a href="balance.jsp">view balance</a></th>
+  		<th><a href="withdraw.jsp">withdraw amount</a></th>
   		</tr>
   		<tr>
   		<th>2.</th>
@@ -27,7 +27,7 @@
   		</tr>
   		<tr>
   		<th>3.</th>
-  		<th><a href="withdraw.jsp">withdraw amount</a></th>
+  		<th><a href="balance.jsp">check balance</a></th>
   		</tr>
   		<tr>
   		<th>4.</th>

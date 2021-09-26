@@ -1,7 +1,15 @@
 package com.vaibhav.info;
 
 public class CostumerInfo {
-	String name,password,mobile,pan,email;
+	String name,password,mobile,pan,email,balance;
+
+	public String getBalance() {
+		return balance;
+	}
+
+	public void setBalance(String balance) {
+		this.balance = balance;
+	}
 
 	public String getName() {
 		return name;

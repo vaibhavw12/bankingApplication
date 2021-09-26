@@ -41,7 +41,7 @@ public class ControllerServlet extends HttpServlet {
 			costumer.setMobile(mobile);
 			costumer.setEmail(email);
 			costumer.setPassword(password);
-			
+			costumer.setBalance("0");
 			//passing costumer object to CostumerDao.save() method 
 			
 			CostumerDao dao = new CostumerDao();
