@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -60,6 +62,31 @@ public class LoginServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		return 0;
+	}
+	
+	public static ArrayList viewDetails() {
+		Connection con = BalanceInfo.create();
+		ArrayList<String> list = new ArrayList();
+		try {
+			PreparedStatement psDemo=con.prepareStatement("select * from register1 where pan=?");
+			psDemo.setString(1,static_pan);
+			ResultSet rsDemo = psDemo.executeQuery();
+			rsDemo.next();
+			list.add(rsDemo.getString(1));
+			list.add(rsDemo.getString(2));
+			list.add(rsDemo.getString(3));
+			list.add(rsDemo.getString(4));
+			list.add(rsDemo.getString(5));
+			list.add(rsDemo.getString(6));
+			list.add(rsDemo.getString(7));
+			
+			return list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	//	return list;
+		return list;
 	}
 
 }
