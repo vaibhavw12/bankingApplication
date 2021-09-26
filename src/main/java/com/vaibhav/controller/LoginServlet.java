@@ -35,7 +35,8 @@ public class LoginServlet extends HttpServlet {
 
 			response.sendRedirect("loginsuccess.jsp");
 		}else {
-			out.print("try again");
+			out.print("plz enter correct crenditials  ,try again");
+			out.print("  <a href='login.jsp'>click here</a>");
 		}
 		
 	}

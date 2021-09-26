@@ -16,11 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class BalanceInfo
+ * Servlet implementation class DepositInfo
  */
-@WebServlet("/BalanceInfo")
-public class BalanceInfo extends HttpServlet {
-	String pan_num,name;
+@WebServlet("/DepositInfo")
+public class DepositInfo extends HttpServlet {
 	
 	public static Connection create() {
 		try {
@@ -39,8 +38,9 @@ public class BalanceInfo extends HttpServlet {
 		return null;
 		
 	}
-
+	String pan_num,name;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
@@ -49,30 +49,29 @@ public class BalanceInfo extends HttpServlet {
 		HttpSession session = request.getSession();
 		name =(String) session.getAttribute("name");
 		pan_num = (String) session.getAttribute("unique");
-		if(withdrawAmount(withdraw)) {
+		
+		String deposit = request.getParameter("deposit");
+		if(depositAmount(deposit)) {
 			out.print("transction successfull");
 			out.print("<br> <a href='loginsuccess.jsp'>dashboard</a>");
 		}else {
 			out.print("transction unsuccessfull");
-			out.print("<br> not enough balance");
 			out.print("<br> <a href='loginsuccess.jsp'>try again</a>");
 		}
 		
 	}
 	int status=0;
-	private boolean withdrawAmount(String withdraw) {
+	private boolean depositAmount(String deposit) {
 		// TODO Auto-generated method stub
-		Connection con = BalanceInfo.create();
+		Connection con = DepositInfo.create();
 		try {
 			PreparedStatement psDemo=con.prepareStatement("select Balance from register1 where pan=?");
 			psDemo.setString(1,pan_num);
 			ResultSet rsDemo = psDemo.executeQuery();
 			rsDemo.next();
 			int balance=(int)Integer.parseInt(rsDemo.getString(1));
-			if(balance<(int)Integer.parseInt(withdraw)) {
-				return false;
-			}
-			balance=balance-(int)Integer.parseInt(withdraw);
+			
+			balance=balance+(int)Integer.parseInt(deposit);
 		//	System.out.println(balance);
 			PreparedStatement ps=con.prepareStatement("update register1 set Balance=? where pan=?");
 			ps.setString(1,balance+"");
@@ -90,7 +89,5 @@ public class BalanceInfo extends HttpServlet {
 		}
 		return false;
 	}
-	
-	
 
 }

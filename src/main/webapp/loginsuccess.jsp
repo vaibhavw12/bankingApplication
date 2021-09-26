@@ -23,7 +23,7 @@
   		</tr>
   		<tr>
   		<th>2.</th>
-  		<th><a href="deposit.html">deposit amount</a></th>
+  		<th><a href="deposit.jsp">deposit amount</a></th>
   		</tr>
   		<tr>
   		<th>3.</th>
