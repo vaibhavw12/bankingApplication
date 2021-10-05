@@ -32,7 +32,7 @@
   		</tr>
   		<tr>
   		<th>3.</th>
-  		<th><a href="balance.jsp">check balance</a></th>
+  		<th><input type="button" onclick="window.location.href = 'balance.jsp';" value="balance"/></th>
   		</tr>
   		<tr>
   		<th>4.</th>
